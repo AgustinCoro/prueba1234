@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google reCAPTCHA</title>
+    <script src="https://www.google.com/recaptcha/api.js?render=TU_SITE_KEY"></script>
+</head>
+<body>
+    <script>
+        function executeCaptcha() {
+            return new Promise((resolve, reject) => {
+                grecaptcha.ready(function() {
+                    grecaptcha.execute("6LeLY78eAAAAADWKei7Kg9JCVejZBOybdXcV0AYg", { action: "login" })
+                        .then(function(token) {
+                            window.flutter_inappwebview.callHandler("onTokenReceived", token);
+                            resolve(token);
+                        })
+                        .catch(reject);
+                });
+            });
+        }
+    </script>
+</body>
+</html>
