@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta http-equiv="origin-trial" content="A/kargTFyk8MR5ueravczef/wIlTkbVk1qXQesp39nV+xNECPdLBVeYffxrM8TmZT6RArWGQVCJ0LRivD7glcAUAAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZS5jb206NDQzIiwiZmVhdHVyZSI6IkRpc2FibGVUaGlyZFBhcnR5U3RvcmFnZVBhcnRpdGlvbmluZzIiLCJleHBpcnkiOjE3NDIzNDIzOTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9">
@@ -60,7 +59,7 @@
        function executeCaptcha(siteKey, action){
         if(typeof Captcha!=="undefined"){
             grecaptcha.ready(function() {
-            grecaptcha.execute(siteKey, { action }).then(function(token) {
+            grecaptcha.execute("6LeLY78eAAAAADWKei7Kg9JCVejZBOybdXcV0AYg", { action }).then(function(token) {
             Captcha.postMessage(token);
             });
            });
