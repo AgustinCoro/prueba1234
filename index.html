@@ -59,7 +59,9 @@
            console.log(siteKey);
            console.log("El action es");
            console.log(action);
+           console.log("1");
         if(typeof Captcha!=="undefined"){
+            console.log("Ingreso en el si del if");
             grecaptcha.ready(function() {
             grecaptcha.execute(siteKey, { action }).then(function(token) {
             Captcha.postMessage(token);
