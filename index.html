@@ -60,7 +60,6 @@
            console.log("El action es");
            console.log(action);
         if(typeof Captcha!=="undefined"){
-            console.log("Ingreso en el si del if");
             grecaptcha.ready(function() {
             grecaptcha.execute(siteKey, { action }).then(function(token) {
             Captcha.postMessage(token);
@@ -76,6 +75,7 @@
             console.log("El action es");
             console.log(action);
             if (!scriptAdded) {
+                console.log("Ingreso en el si del if");
                 var script = document.createElement('script');
                 script.type = 'text/javascript';
                 script.src = `https://www.google.com/recaptcha/api.js?render=${dataSiteKey}`;
