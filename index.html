@@ -6,7 +6,22 @@
         function getRecaptchaToken() {
             grecaptcha.ready(function() {
                 grecaptcha.execute('6LeLY78eAAAAADWKei7Kg9JCVejZBOybdXcV0AYg', { action: 'login' }).then(function(token) {
-                    Recaptcha.postMessage(token);
+                    // Enviar el token a tu backend o hacer algo con él
+                    console.log(token); // Muestra el token en la consola
+                    // Aquí puedes hacer una llamada AJAX para enviar el token
+                    // Por ejemplo, usando fetch:
+                    /*
+                    fetch('/your-endpoint', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ token: token }),
+                    })
+                    .then(response => response.json())
+                    .then(data => console.log(data))
+                    .catch((error) => console.error('Error:', error));
+                    */
                 });
             });
         }
