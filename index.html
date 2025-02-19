@@ -54,22 +54,27 @@
 <script>
     var scriptAdded = false;
 
-       function executeCaptcha(siteKey, action){
-           console.log("El siteKey es");
-           console.log(siteKey);
-           console.log("El action es");
-           console.log(action);
-           console.log("1");
-        if(typeof Captcha!=="undefined"){
+        function executeCaptcha(siteKey, action) {
+            console.log("El siteKey es");
+            console.log(siteKey);
+            console.log("El action es");
+            console.log(action);
+            console.log("1");
+        
+            // Eliminar la condición para pruebas
             console.log("Ingreso en el si del if");
-            grecaptcha.ready(function() {
-            grecaptcha.execute(siteKey, { action }).then(function(token) {
-            Captcha.postMessage(token);
-
+            
+            grecaptcha.ready(function () {
+                console.log("grecaptcha está listo, ejecutando...");
+        
+                grecaptcha.execute(siteKey, { action }).then(function (token) {
+                    console.log("Token generado:", token);
+                    // Captcha.postMessage(token); // Comentar para pruebas
+                }).catch(function (error) {
+                    console.error("Error al ejecutar reCAPTCHA:", error);
+                });
             });
-           });
         }
-      }
 
         function readyCaptcha(dataSiteKey, action) {
             console.log("El dataSiteKey es");
