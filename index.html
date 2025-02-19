@@ -64,20 +64,20 @@
         }
       }
 
-    function readyCaptcha(dataSiteKey, action) {
-        if (!scriptAdded) {
-            var script = document.createElement('script');
-            script.type = 'text/javascript';
-            script.src = `https://www.google.com/recaptcha/api.js?render=${dataSiteKey}`;
-            script.async = true;
-            script.defer = true;
-            script.onload = function() {
-                console.log("reCAPTCHA script cargado exitosamente.");
-            };
-            document.head.appendChild(script);
-            scriptAdded = true;
+        function readyCaptcha(dataSiteKey, action) {
+            if (!scriptAdded) {
+                var script = document.createElement('script');
+                script.type = 'text/javascript';
+                script.src = `https://www.google.com/recaptcha/api.js?render=${dataSiteKey}`;
+                script.async = true;
+                script.defer = true;
+                script.onload = function() {
+                    console.log("reCAPTCHA script cargado exitosamente.");
+                };
+                document.head.appendChild(script);
+                scriptAdded = true;
+            }
         }
-    }
 
 </script>
 
