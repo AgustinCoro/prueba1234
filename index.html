@@ -1,105 +1,17 @@
-<html><head><meta http-equiv="origin-trial" content="A/kargTFyk8MR5ueravczef/wIlTkbVk1qXQesp39nV+xNECPdLBVeYffxrM8TmZT6RArWGQVCJ0LRivD7glcAUAAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZS5jb206NDQzIiwiZmVhdHVyZSI6IkRpc2FibGVUaGlyZFBhcnR5U3RvcmFnZVBhcnRpdGlvbmluZzIiLCJleHBpcnkiOjE3NDIzNDIzOTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9">
-    <title>reCAPTCHA</title>
-    <script type="text/javascript" async="" charset="utf-8" src="https://www.gstatic.com/recaptcha/releases/IyZ984yGrXrBd6ihLOYGwy9X/recaptcha__es_419.js" crossorigin="anonymous" integrity="sha384-vUirHh4B4VBWsd5/hrJal5Vijzexea/Tzn7RPiRGDx5bYWszP37Dv9FFdfjEe+eW"></script><script src="https://www.google.com/recaptcha/api.js" async="" defer=""></script>
-    <script id="recaptcha-script" async="" defer=""></script>
-
-<script defer="" data-domain="emerald-eran-52.tiiny.site" src="https://analytics.tiiny.site/js/plausible.js"></script><script type="text/javascript" src="https://tiiny.host/ad-script.js"></script><style>
-.wIrrwxUWseQZnckswgCgiJLx {
-  width: 152px !important;
-  position: fixed !important;
-  left: 20px !important;
-  bottom: 20px !important;
-  display: block !important;
-  background: #333333 !important;
-  color: #fff !important;
-  padding: 8px 10px !important;
-  z-index: 10000000 !important;
-  border-radius: 50px !important;
-  font-size: 0 !important;
-  overflow: hidden !important;
-  will-change: background, width !important;
-  transition: 0.25s background, 0.25s width !important;
-  display: flex  !important;
-  flex-direction: row  !important;
-  align-items: center  !important;
-  padding: 8px 12px  !important;
-  gap: 10px  !important;
-  box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.1)  !important;
-  text-decoration: none !important;
-}
-.wIrrwxUWseQZnckswgCgiJLx:hover {
-  opacity: 1 !important;
-  background: #0F8140 !important;
-}
-.wIrrwxUWseQZnckswgCgiJLx:hover svg {
-  transform: scale(1.1) !important;
-}
-.wIrrwxUWseQZnckswgCgiJLx svg {
-  will-change: transform !important;
-  transition: 0.25s transform !important;
-}
-.wIrrwxUWseQZnckswgCgiJLx p {
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif !important;
-  font-style: normal !important;
-  font-weight: 600 !important;
-  font-size: 12px !important;
-  line-height: 125% !important;
-  margin: 0 !important;
-  padding: 0 4px 0 0 !important;
-  color: #fff !important;
-}
-</style></head>
-<body><div style="position: fixed !important; bottom: 0px !important; width: 100% !important; height: 55px !important; z-index: 9999 !important;"><a href="https://tiiny.host?ref=free-site"><div style="padding:10px!important;height:55px;text-align:center;background:rgb(220,137,232)!important;background:linear-gradient(141deg,rgba(220,137,232,1)0%,rgba(144,64,204,1)100%)!important"><img style="height:35px!important;width:auto!important" src="https://tiiny.host/assets/img/ad.png" alt="tiiny.host"></div></a></div>
-
-<script>
-    var scriptAdded = false;
-
-        function executeCaptcha(siteKey, action) {
-            console.log("El siteKey es");
-            console.log(siteKey);
-            console.log("El action es");
-            console.log(action);
-            console.log("1");
-        
-            // Eliminar la condición para pruebas
-            console.log("Ingreso en el si del if");
-            
-            grecaptcha.ready(function () {
-                console.log("grecaptcha está listo, ejecutando...");
-        
-                grecaptcha.execute(siteKey, { action }).then(function (token) {
-                    console.log("Token generado:", token);
-                    // Captcha.postMessage(token); // Comentar para pruebas
-                }).catch(function (error) {
-                    console.error("Error al ejecutar reCAPTCHA:", error);
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://www.google.com/recaptcha/api.js?render=TU_CLAVE_PUBLICA"></script>
+    <script>
+        function getRecaptchaToken() {
+            grecaptcha.ready(function() {
+                grecaptcha.execute('TU_CLAVE_PUBLICA', { action: 'submit' }).then(function(token) {
+                    Recaptcha.postMessage(token);
                 });
             });
         }
-
-        function readyCaptcha(dataSiteKey, action) {
-            console.log("El dataSiteKey es");
-            console.log(dataSiteKey);
-            console.log("El action es");
-            console.log(action);
-            console.log("1");
-            if (!scriptAdded) {
-                console.log("Ingreso en el si del if");
-                var script = document.createElement('script');
-                script.type = 'text/javascript';
-                script.src = `https://www.google.com/recaptcha/api.js?render=${dataSiteKey}`;
-                script.async = true;
-                script.defer = true;
-                script.onload = function() {
-                    console.log("reCAPTCHA script cargado exitosamente.");
-                };
-                document.head.appendChild(script);
-                scriptAdded = true;
-            }
-        }
-
-</script>
-
-
-<script src="https://static.app/js/static.js" type="text/javascript"></script><a href="https://static.app/?utm_source=https%3A%2F%2Femerald-eran-52.tiiny.site%2F&amp;utm_campaign=freeplan" class="wIrrwxUWseQZnckswgCgiJLx" rel="nofollow" target="_blank"><svg width="24" height="24" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="#27AE60"></circle><path fill-rule="evenodd" clip-rule="evenodd" d="M18.0274 13.3642L23.9844 6.11236C24.0218 6.06679 23.9877 6 23.9272 6H14.9538C14.9262 6 14.9011 6.01454 14.8888 6.03811L10.5332 14.2973C10.5081 14.3448 10.5463 14.4006 10.6023 14.3979L13.9899 14.2289L10.8974 20.0932C10.8723 20.1407 10.9106 20.1965 10.9665 20.1938L14.0356 20.041C14.0911 20.0382 14.1294 20.094 14.1043 20.1419L10.0084 27.8986C9.97178 27.9678 10.0631 28.0334 10.1228 27.9811L19.9292 19.3876C19.9782 19.3448 19.9465 19.267 19.8798 19.267H17.1145C17.054 19.267 17.0199 19.1998 17.0573 19.1543L21.6286 13.5893C21.666 13.5434 21.6319 13.4766 21.5714 13.4766H18.0846C18.0241 13.4766 17.9899 13.4098 18.0274 13.3642Z" fill="white"></path></svg><p>Hosted for free<br>with Static.app</p></a>
-
-</body></html>
+        window.onload = getRecaptchaToken;
+    </script>
+</head>
+<body></body>
+</html>
