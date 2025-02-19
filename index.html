@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script src="https://www.google.com/recaptcha/api.js?render=TU_CLAVE_PUBLICA"></script>
+    <script src="https://www.google.com/recaptcha/api.js?render=6LeLY78eAAAAADWKei7Kg9JCVejZBOybdXcV0AYg"></script>
     <script>
         function getRecaptchaToken() {
             grecaptcha.ready(function() {
-                grecaptcha.execute('TU_CLAVE_PUBLICA', { action: 'submit' }).then(function(token) {
+                grecaptcha.execute('6LeLY78eAAAAADWKei7Kg9JCVejZBOybdXcV0AYg', { action: 'submit' }).then(function(token) {
                     Recaptcha.postMessage(token);
                 });
             });
