@@ -55,6 +55,8 @@
     var scriptAdded = false;
 
        function executeCaptcha(siteKey, action){
+           console.log("El siteKey es");
+           console.log(siteKey);
         if(typeof Captcha!=="undefined"){
             grecaptcha.ready(function() {
             grecaptcha.execute(siteKey, { action }).then(function(token) {
@@ -65,6 +67,8 @@
       }
 
         function readyCaptcha(dataSiteKey, action) {
+            console.log("El siteKey es");
+            console.log(dataSiteKey);
             if (!scriptAdded) {
                 var script = document.createElement('script');
                 script.type = 'text/javascript';
