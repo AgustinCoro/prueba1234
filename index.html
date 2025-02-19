@@ -63,6 +63,7 @@
             grecaptcha.ready(function() {
             grecaptcha.execute(siteKey, { action }).then(function(token) {
             Captcha.postMessage(token);
+            console.log(token);
             });
            });
         }
