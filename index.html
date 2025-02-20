@@ -1,43 +1,44 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta http-equiv="origin-trial" content="A/kargTFyk8MR5ueravczef/wIlTkbVk1qXQesp39nV+xNECPdLBVeYffxrM8TmZT6RArWGQVCJ0LRivD7glcAUAAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZS5jb206NDQzIiwiZmVhdHVyZSI6IkRpc2FibGVUaGlyZFBhcnR5U3RvcmFnZVBhcnRpdGlvbmluZzIiLCJleHBpcnkiOjE3NDIzNDIzOTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>reCAPTCHA v3</title>
-
-    <!-- Cargar el script de Google reCAPTCHA v3 -->
-    <script type="text/javascript" async="" charset="utf-8" src="https://www.gstatic.com/recaptcha/releases/IyZ984yGrXrBd6ihLOYGwy9X/recaptcha__es_419.js" crossorigin="anonymous" integrity="sha384-vUirHh4B4VBWsd5/hrJal5Vijzexea/Tzn7RPiRGDx5bYWszP37Dv9FFdfjEe+eW"></script><script src="https://www.google.com/recaptcha/api.js?render=6LeLY78eAAAAADWKei7Kg9JCVejZBOybdXcV0AYg"></script>
-</head>
-<body>
+    <title>Prueba de reCAPTCHA v3</title>
+    
+    <!-- Carga el script de reCAPTCHA -->
+    <script src="https://www.google.com/recaptcha/api.js?render=6LeLY78eAAAAADWKei7Kg9JCVejZBOybdXcV0AYg"></script>
 
     <script>
-        // Asegurarnos de que el script de reCAPTCHA se haya cargado correctamente
-        window.onload = function() {
+        // Definir la función readyCaptcha para evitar el error de referencia
+        function readyCaptcha() {
+            console.log("readyCaptcha ejecutado correctamente.");
+        }
+
+        window.onload = function () {
             if (typeof grecaptcha !== 'undefined') {
-                grecaptcha.execute('6LeLY78eAAAAADWKei7Kg9JCVejZBOybdXcV0AYg', {action: 'login'}).then(function(token) {
-                    // Enviar el token a la app Flutter
-                    console.log("Token de reCAPTCHA: ", token);
-                    if (window.flutter_inappwebview) {
-                        window.flutter_inappwebview.callHandler('onTokenReceived', token);
-                    } else {
-                        console.error("Flutter WebView handler no encontrado.");
-                    }
-                }).catch(function(error) {
-                    console.error("Error al ejecutar reCAPTCHA: ", error);
+                grecaptcha.ready(function () {
+                    grecaptcha.execute('6LeLY78eAAAAADWKei7Kg9JCVejZBOybdXcV0AYg', { action: 'login' })
+                        .then(function (token) {
+                            console.log("Token de reCAPTCHA: ", token);
+                            
+                            // Verificar si Flutter WebView está disponible y enviar el token
+                            if (window.flutter_inappwebview) {
+                                window.flutter_inappwebview.callHandler('onTokenReceived', token);
+                            } else {
+                                console.warn("Flutter WebView handler no encontrado.");
+                            }
+                        })
+                        .catch(function (error) {
+                            console.error("Error al ejecutar reCAPTCHA: ", error);
+                        });
                 });
             } else {
                 console.error("reCAPTCHA no se ha cargado correctamente.");
             }
         };
     </script>
-
-
-
-<div>
-    <div class="grecaptcha-badge" data-style="bottomright" style="width: 256px; height: 60px; display: block; transition: right 0.3s; position: fixed; bottom: 14px; right: -186px; box-shadow: gray 0px 0px 5px; border-radius: 2px; overflow: hidden;"><div class="grecaptcha-logo"><iframe title="reCAPTCHA" width="256" height="60" role="presentation" name="a-5u1akskqauyj" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LeLY78eAAAAADWKei7Kg9JCVejZBOybdXcV0AYg&amp;co=aHR0cHM6Ly9lZGVzZS5jb20uYXI6NDQz&amp;hl=es-419&amp;v=IyZ984yGrXrBd6ihLOYGwy9X&amp;size=invisible&amp;cb=kacuaylpuvz3"></iframe></div><div class="grecaptcha-error"></div><textarea id="g-recaptcha-response-100000" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;">
-        
-    </iframe>
-</div>
+</head>
+<body>
+    <h1>Prueba de reCAPTCHA v3</h1>
 </body>
 </html>
