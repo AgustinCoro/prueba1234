@@ -4,18 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prueba de reCAPTCHA v3</title>
-    <script src="https://www.recaptcha.net/recaptcha/api2/reload?k=6LeLY78eAAAAADWKei7Kg9JCVejZBOybdXcV0AYg"></script>
+    <!-- Carga el script correcto -->
+    <script src="https://www.google.com/recaptcha/api.js?render=6LeLY78eAAAAADWKei7Kg9JCVejZBOybdXcV0AYg"></script>
     <script>
         function getRecaptchaToken() {
-            grecaptcha.ready(function() {
-                grecaptcha.execute('6LeLY78eAAAAADWKei7Kg9JCVejZBOybdXcV0AYg', { action: 'submit' }).then(function(token) {
-                    console.log('Token generado:', token);
+            // Asegurar que grecaptcha está disponible antes de ejecutarlo
+            if (typeof grecaptcha !== "undefined") {
+                grecaptcha.ready(function() {
+                    grecaptcha.execute('6LeLY78eAAAAADWKei7Kg9JCVejZBOybdXcV0AYg', { action: 'submit' })
+                    .then(function(token) {
+                        console.log('Token generado:', token);
+                    })
+                    .catch(function(error) {
+                        console.error('Error al obtener el token:', error);
+                    });
                 });
-            });
+            } else {
+                console.error("grecaptcha no está definido. Esperando...");
+                setTimeout(getRecaptchaToken, 500); // Reintentar en 500ms
+            }
         }
+
+        // Esperar a que el script cargue completamente
+        window.onload = function() {
+            setTimeout(getRecaptchaToken, 1000); // Pequeño delay para asegurar carga
+        };
     </script>
 </head>
-<body onload="getRecaptchaToken()">
-    <h1>Prueba de reCAPTCHA v32</h1>
+<body>
+    <h1>Prueba de reCAPTCHA v3</h1>
 </body>
 </html>
