@@ -1,32 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <script src="https://www.google.com/recaptcha/api.js?render=6LeLY78eAAAAADWKei7Kg9JCVejZBOybdXcV0AYg"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba de reCAPTCHA v3</title>
+    <script src="https://www.google.com/recaptcha/api.js?render=TU_SITE_KEY"></script>
     <script>
         function getRecaptchaToken() {
             grecaptcha.ready(function() {
-                grecaptcha.execute('6LeLY78eAAAAADWKei7Kg9JCVejZBOybdXcV0AYg', { action: 'login' }).then(function(token) {
-                    // Enviar el token a tu backend o hacer algo con él
-                    console.log(token); // Muestra el token en la consola
-                    // Aquí puedes hacer una llamada AJAX para enviar el token
-                    // Por ejemplo, usando fetch:
-                    /*
-                    fetch('/your-endpoint', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify({ token: token }),
-                    })
-                    .then(response => response.json())
-                    .then(data => console.log(data))
-                    .catch((error) => console.error('Error:', error));
-                    */
+                grecaptcha.execute('TU_SITE_KEY', { action: 'submit' }).then(function(token) {
+                    console.log('Token generado:', token);
                 });
             });
         }
-        window.onload = getRecaptchaToken;
     </script>
 </head>
-<body></body>
+<body onload="getRecaptchaToken()">
+    <h1>Prueba de reCAPTCHA v3</h1>
+</body>
 </html>
