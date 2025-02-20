@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prueba de reCAPTCHA v3</title>
     <!-- Carga el script correcto -->
-    <script src="https://www.recaptcha.net/recaptcha/api2/reload?k=6LeLY78eAAAAADWKei7Kg9JCVejZBOybdXcV0AYg"></script>
+    <script src="https://www.google.com/recaptcha/api.js?render=6LeLY78eAAAAADWKei7Kg9JCVejZBOybdXcV0AYg"></script>
     <script>
         function getRecaptchaToken() {
             // Asegurar que grecaptcha está disponible antes de ejecutarlo
             if (typeof grecaptcha !== "undefined") {
                 grecaptcha.ready(function() {
-                    grecaptcha.execute('6LeLY78eAAAAADWKei7Kg9JCVejZBOybdXcV0AYg', { action: 'login' })
+                    grecaptcha.execute('6LeLY78eAAAAADWKei7Kg9JCVejZBOybdXcV0AYg', { action: 'submit' })
                     .then(function(token) {
                         console.log('Token generado:', token);
                     })
