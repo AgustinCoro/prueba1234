@@ -11,7 +11,7 @@
             // Asegurar que grecaptcha está disponible antes de ejecutarlo
             if (typeof grecaptcha !== "undefined") {
                 grecaptcha.ready(function() {
-                    grecaptcha.execute('6LeLY78eAAAAADWKei7Kg9JCVejZBOybdXcV0AYg', { action: 'submit' })
+                    grecaptcha.execute('6LeLY78eAAAAADWKei7Kg9JCVejZBOybdXcV0AYg', { action: 'login' })
                     .then(function(token) {
                         console.log('Token generado:', token);
                     })
@@ -32,6 +32,6 @@
     </script>
 </head>
 <body>
-    <h1>Prueba de reCAPTCHA v31</h1>
+    <h1>Prueba de reCAPTCHA v3</h1>
 </body>
 </html>
